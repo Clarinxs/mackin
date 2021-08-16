@@ -1,0 +1,9 @@
+pragma solidity ^0.4.24;  
+import "openzeppelin-    solidity/contracts/token/ERC20/ERC20Token.sol"; 
+contract MyAwesomeToken is ERC20Token("MyAwesomeToken", "MAT") {     // Mainnet Gateway address     address public gateway;
+constructor(address _gateway) public {
+  gateway = _gateway;
+}
+function depositToGateway(uint tokenId) public {         
+  safeTransferFrom(msg.sender, gateway, tokenId);     }  
+}
